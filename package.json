@@ -37,6 +37,6 @@
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
-    "superagent": "^1.6.1"
+    "superagent": "^1.7.2"
   }
 }

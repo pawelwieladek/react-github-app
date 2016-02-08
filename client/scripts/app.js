@@ -2,8 +2,11 @@ import React from 'react';
 
 import styles from '../styles/styles.less';
 
+import repositories from './api/repositories';
+
 export default React.createClass({
     displayName: 'App',
+
     render() {
         return (
             <div className="app">
