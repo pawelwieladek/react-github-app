@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "serve": "webpack-dev-server --config webpack.config.js"
+    "serve": "webpack-dev-server --config webpack.config.js",
+    "test": "mocha ./client/scripts/test --compilers js:babel-core/register --recursive --require ./client/scripts/test/setup.js"
   },
   "repository": {
     "type": "git",
@@ -32,11 +33,17 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "chai": "^3.5.0",
     "classnames": "^2.2.1",
     "font-awesome": "^4.5.0",
+    "jsdom": "^8.0.2",
+    "mocha": "^2.4.5",
     "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.7",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
     "superagent": "^1.7.2"
   }
 }

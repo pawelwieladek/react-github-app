@@ -1,8 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/styles.less';
-
-import repositories from './api/repositories';
+import repositories from '../api/repositories';
 
 export default React.createClass({
     displayName: 'App',
@@ -10,7 +8,7 @@ export default React.createClass({
     render() {
         return (
             <div className="app">
-                App
+                <h1>App</h1>
             </div>
         );
     }

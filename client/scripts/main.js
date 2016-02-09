@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './app';
+import styles from '../styles/styles.less';
+
+import App from './components/app';
 
 ReactDOM.render(<App />, document.querySelector('#main'));
