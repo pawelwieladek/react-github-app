@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import { Input, Button } from 'react-bootstrap';
 
 export default React.createClass({
     displayName: 'Search',
@@ -8,17 +9,19 @@ export default React.createClass({
         onSubmit: React.PropTypes.func.isRequired
     },
 
-    handleSearch() {
-        let value = ReactDOM.findDOMNode(this.refs.input).value;
+    handleSearch(event) {
+        event.preventDefault();
+        let value = this.refs.input.getValue();
         this.props.onSubmit(value);
     },
 
     render() {
+        let button = <Input type="submit" value="Search" />;
+
         return (
-            <div>
-                <input type="text" placeholder="Was suchen Sie?" ref="input" />
-                <button onClick={this.handleSearch}>Search</button>
-            </div>
+            <form action="" onSubmit={this.handleSearch}>
+                <Input type="text" placeholder="Was suchen Sie?" ref="input" buttonAfter={button} />
+            </form>
         );
     }
 });

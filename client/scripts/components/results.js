@@ -1,12 +1,14 @@
 import React from 'react';
 
 import repositories from '../api/repositories';
+import ResultItem from './result-item';
 
 export default React.createClass({
     displayName: 'Results',
 
     propTypes: {
-        query: React.PropTypes.string
+        query: React.PropTypes.string,
+        language: React.PropTypes.string
     },
 
     getInitialState() {
@@ -16,7 +18,10 @@ export default React.createClass({
     },
 
     componentWillReceiveProps(nextProps) {
-        repositories(nextProps.query).end()
+        repositories(nextProps.query)
+            .withLanguage(nextProps.language)
+            .withSort('stars', 'desc')
+            .end()
             .then(responseBody => {
                 let results = responseBody.items.map(item => {
                     return {
@@ -37,23 +42,17 @@ export default React.createClass({
 
     render() {
         let results = this.state.results.map(result => {
-            let { name, owner, language, avatarUrl, stars } = result;
+            let { name, owner } = result;
 
             return (
-                <li>
-                    <div>{name}</div>
-                    <div>{owner}</div>
-                    <div>{language}</div>
-                    <div>{avatarUrl}</div>
-                    <div>{stars}</div>
-                </li>
+                <ResultItem {...result} key={`${owner} ${name}`} />
             );
         });
 
         return (
-            <ul>
+            <div>
                 {results}
-            </ul>
+            </div>
         );
     }
 });
