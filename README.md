@@ -3,10 +3,11 @@
 1. Install dependencies ```npm install```
 
 2. [Generate new GitHub app](https://github.com/settings/applications/new) with the following data:
- 
- --- | ---
- Homepage URL | ```http://localhost:8080```
- Authorization callback URL | ```http://localhost:8080```
+
+ | Field                        | Value                         |
+ | ---------------------------- | ----------------------------- |
+ | Homepage URL                 | ```http://localhost:8080```   |
+ | Authorization callback URL   | ```http://localhost:8080```   |
 
 3. Create ```config.js``` file with the following content:
 
